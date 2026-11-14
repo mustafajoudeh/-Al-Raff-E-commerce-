@@ -50,7 +50,8 @@
     <script>
         try {
             var t = localStorage.getItem('alraff-theme');
-            if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+            if (t === 'light' || t === 'dark') 
+            document.documentElement.dataset.theme = t
         } catch (e) {}
     </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
