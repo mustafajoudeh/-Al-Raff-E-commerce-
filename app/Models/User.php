@@ -12,14 +12,27 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+
+    public function Seller()
+    {
+        return $this::hasOne(Seller::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
+        'phone_number',
+        'role',
+        'status',
         'password',
     ];
 

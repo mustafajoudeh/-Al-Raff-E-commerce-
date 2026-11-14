@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Order;
+
+class OrderSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $customers = User::where('role', 'customer')
+            ->where('status', 'active')
+            ->get();
+
+        Order::factory(25)
+            ->recycle($customers)
+            ->create();
+    }
+}
